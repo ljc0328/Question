@@ -22,12 +22,6 @@ public class Solution21 {
 				strider[k][1]=sc.nextInt();//열위치
 				strider[k][2]=sc.nextInt();//방향(1:하,2:우)
 			}
-			//////////////////////////////
-			//( 이 부분에 알고리즘 구현을 한다. )//
-			//////////////////////////////
-				
-			//strider[0][0]행 / [1]열 / [2]방향
-			//ss는 소금쟁이 넘버
 			
 			for(int ss=0; ss<S; ss++) {
 				
@@ -54,18 +48,18 @@ public class Solution21 {
 					for(int i=0; i<3; i++) {
 						
 						row += cnt; // 3.. 2.. 1..
-						if(row>=len) {	// 뛸자리가 영역밖이면,그만뛰엇!
+						if(row>=len) {	// 뛸자리가 영역밖
 							flag=-1;
 							break;
 						}
 						else {	// 뛸자리가 영역 내이면
-							if(lake[row][col]==1) {	//뛸 자리가 이미 밟았던 곳이면, 결과 출력하고 다음 test_case로 보내기 위한 flag=1
+							if(lake[row][col]==1) {	//뛸 자리가 이미 밟았던 곳이면, 결과 출력 다음 test_case로 보내기 위한 flag=1
 //								System.out.println("#"+test_case + " " + (ss+1));
 								Answer = ss+1;
 								flag=1;
 								break;
 							}							
-							else {	// 뛸 자리가 아무도 밟지 않았던 곳이면, 밟았다는 표시해주고 다음 점프로 ㄱ
+							else {	// 뛸 자리가 아무도 밟지 않았던 곳이면, 밟았다는 표시해주고 다음 점프로
 								lake[row][col]=1; //뛰고난 자리 1로.
 								cnt--;	// cnt줄여줌 ( 3.. 2.. 1..)
 							}
@@ -82,7 +76,7 @@ public class Solution21 {
 					for(int i=0; i<3; i++) {
 						//뛸 자리가 범위 내인지 확인 
 						col += cnt; // 3.. 2.. 1..
-						if(col>=len) {	// 뛸자리가 영역밖이면, 그만뛰엇!
+						if(col>=len) {	// 뛸자리가 영역밖
 							flag=-1;
 							break; // 점프 반복문 out
 						}
@@ -92,7 +86,7 @@ public class Solution21 {
 								flag=1;
 								break;
 							}
-							else {		// 뛸 자리가 아무도 밟지 않았던 곳이면, 밟았다는 표시해주고 다음 점프로 ㄱ
+							else {		// 뛸 자리가 아무도 밟지 않았던 곳이면, 밟았다는 표시해주고 다음 점프로
 							lake[row][col]=1; //뛰고난 자리 1로.
 							cnt--;	// cnt줄여줌 ( 3.. 2.. 1..)
 							}
